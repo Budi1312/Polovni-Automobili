@@ -1,0 +1,24 @@
+@mixin mobilni {
+    @media (max-width: 600px) {
+        @content;
+    }
+}
+
+@mixin gridSlikeMixin {
+    @media (max-width: 835px) {
+        @content;
+    }
+}
+
+@mixin srednji {
+    @media (max-width: 880px) {
+        @content;
+    }
+}
+
+
+@mixin tablet {
+    @media (max-width: 1200px) {
+        @content;
+    }
+}
