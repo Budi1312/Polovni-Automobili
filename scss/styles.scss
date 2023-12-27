@@ -52,8 +52,17 @@ header {
             gap: 1.5rem;
             li {
                 list-style-type: none;
+                &:hover {
+                    background: $crna;
+                    padding: 0rem;
+                }
                 a {
                     text-decoration: none;
+                    color: $crna;
+                    height: 100%;
+                    &:hover {
+                        color: $plavaNav;
+                    }
                 }
             }
         }
@@ -78,6 +87,7 @@ main {
             h1 {
                 font-size: 2rem;
                 margin-left: 5rem;
+                text-shadow: 1px 2px 5px $plavaNav;
             }
             .sectionContainer {
                 display: grid;
@@ -121,6 +131,7 @@ main {
                 background-color: #ffffff;
                 height: fit-content;
                 border-radius: 0.5rem;
+                perspective: 1000px;
                 img {
                     max-width: 100%;
                     height: auto;
@@ -129,6 +140,10 @@ main {
                     background-repeat: no-repeat;
                     background-size: cover;
                     border-radius: 0.5rem;
+                    transition: 1s transform ease-in-out;
+                    &:hover {
+                        transform: rotateX(360deg) rotateZ(180deg) scale(1.09);
+                    }
                 }
                 figcaption {
                     padding: 0.5rem;
@@ -152,6 +167,7 @@ footer {
             display: flex;
             flex-direction: column;
             gap: 1rem;
+            padding-top: 1rem;
             h3 {
                 font-size: 1.7rem;
             }
@@ -210,6 +226,21 @@ footer {
         .gridForm {
             display: none;
         }
+
+        .filterHidden:hover + .gridForm {
+            display: grid!important;
+            form {
+                column-gap: 1rem!important;
+                row-gap: 1rem!important;
+            }
+        }
+        .gridForm:hover {
+            display: grid!important;
+            form {
+                column-gap: 1rem!important;
+                row-gap: 1rem!important;
+            }
+        } 
     }
     footer {
         section {
@@ -220,6 +251,7 @@ footer {
             text-align: center;
             article {
                 gap: 0rem!important;
+                padding: 0rem!important;
             }
         }
     }
@@ -227,36 +259,3 @@ footer {
 }
 
 
-
-
-// form {
-//     background-color: #fff;
-//     border-radius: 1.5rem;
-//     display: grid;
-//     grid-template-columns: repeat(3,1fr);
-//     row-gap: 1.5rem;
-//     column-gap: 2rem;
-//     padding: 3rem 1.5rem;
-//     select, input, button {
-//         @include customSIB;
-//     }
-//     button {
-//         background-color: $narandzastaDugme;
-//     }
-// }
-// figure {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     align-self: center;
-//     place-self: center;
-//     place-content: center;
-//     margin-top: 10rem;
-//  img {
-//     max-width: 100%;
-//     height: auto;
-//     vertical-align: middle;
-//     font-style: italic;
-//     background-repeat: no-repeat;
-//     background-size: cover;
-//  }
