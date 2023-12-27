@@ -13,6 +13,8 @@ body {
 
 header {
   background-color: #dddcdc;
+  display: grid;
+  grid-template-rows: 1fr auto;
 }
 header .naslovna {
   width: 70%;
@@ -20,9 +22,12 @@ header .naslovna {
 }
 header .naslovna img {
   width: 100%;
+  height: 100%;
 }
 header nav {
   background-color: #93c4ff;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -54,28 +59,81 @@ main {
   background-image: url(../images/background.jpeg);
   background-size: cover;
   background-repeat: no-repeat;
-  height: 55dvh;
+  height: auto;
   display: grid;
   grid-template-rows: repeat(2, 1fr);
 }
 main section {
-  width: 60%;
-  margin: 0 auto;
   display: grid;
   grid-template-rows: auto 1fr;
+  padding: 0.5rem;
+  gap: 1rem;
+  width: 70%;
+  margin: 0 auto;
+}
+main section h1 {
+  font-size: 2rem;
+  margin-left: 5rem;
 }
 main section .sectionContainer {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 }
-main section .sectionContainer form {
+main section .sectionContainer .filterHidden {
+  display: none;
+}
+main section .sectionContainer .gridForm {
+  grid-column: span 3;
+  padding: 1rem;
+  height: 100%;
+}
+main section .sectionContainer .gridForm form {
   background-color: #fff;
+  padding: 2.5rem 1rem;
+  border-radius: 1.5rem;
+  height: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  padding: 3rem 1rem;
+  row-gap: 2rem;
+  column-gap: 3rem;
 }
-main section .sectionContainer form select {
+main section .sectionContainer .gridForm form select, main section .sectionContainer .gridForm form input, main section .sectionContainer .gridForm form button {
   width: 100%;
   height: 100%;
+  border-radius: 0.3rem;
+}
+main section .sectionContainer .gridForm form button {
+  background-color: #ffa500;
+}
+main section .sectionContainer img {
+  border: 3px solid white;
+  border-radius: 0.5rem;
+}
+main article {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+main article figure {
+  width: 300px;
+  background-color: #ffffff;
+  height: fit-content;
+  border-radius: 0.5rem;
+}
+main article figure img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  font-style: italic;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 0.5rem;
+}
+main article figure figcaption {
+  padding: 0.5rem;
+  text-align: center;
 }
 
 footer {
@@ -95,6 +153,38 @@ footer {
   main {
     display: flex;
     flex-direction: column;
+  }
+  .imgHidden {
+    display: none;
+  }
+  .gridForm {
+    grid-column: span 4 !important;
+  }
+  .gridForm form {
+    display: grid;
+    padding: 2rem !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    row-gap: 2rem !important;
+  }
+  .gridForm form select, .gridForm form input, .gridForm form button {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.3rem;
+    padding: 0.5rem;
+  }
+}
+@media (max-width: 600px) {
+  .sectionContainer .filterHidden {
+    display: flex !important;
+    grid-column: span 4;
+    justify-content: center;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    border: none;
+    box-shadow: 1px 1px 5px wheat;
+  }
+  .sectionContainer .gridForm {
+    display: none;
   }
 }
 
