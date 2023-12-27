@@ -13,7 +13,6 @@
 body {
     display: grid;
     grid-template-rows: auto 1fr auto;
-    // height: 100dvh;
 }
 
 header {
@@ -68,6 +67,7 @@ main {
     height: auto;
     display: grid;
     grid-template-rows: repeat(2,1fr);
+    padding: 0rem 0rem 1rem 0rem;
     section {
             display: grid;
             grid-template-rows: auto 1fr;
@@ -140,7 +140,23 @@ main {
 
 
 footer {
-    background: #9e1de9;
+    background-color: #000000;
+    padding: 1rem;
+    color: #fff;
+    section {
+        display: flex;
+        justify-content: space-evenly;
+        width: 70%;
+        margin: 0 auto;
+        article {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            h3 {
+                font-size: 1.7rem;
+            }
+        }
+    }
 }
 
 @include tablet {
@@ -156,20 +172,26 @@ footer {
     main {
         display: flex;
         flex-direction: column;
+        section {
+            width: 100%!important;
+            .imgHidden {
+                display: none;
+            }
+            .gridForm {
+                grid-column: span 4!important;
+                form {
+                    display: grid;
+                    padding: 2rem!important;
+                    grid-template-columns: repeat(2,1fr)!important;
+                    row-gap: 2rem!important;
+                    @include customSIB(0.5rem);
+                }
+            }
+        }
     }
-
-    .imgHidden {
-        display: none;
-    }
-    
-    .gridForm {
-        grid-column: span 4!important;
-        form {
-            display: grid;
-            padding: 2rem!important;
-            grid-template-columns: repeat(2,1fr)!important;
-            row-gap: 2rem!important;
-            @include customSIB(0.5rem);
+    footer {
+        section {
+            width: 90%!important;
         }
     }
 }
@@ -187,6 +209,18 @@ footer {
         }
         .gridForm {
             display: none;
+        }
+    }
+    footer {
+        section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            article {
+                gap: 0rem!important;
+            }
         }
     }
     
